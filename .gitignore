@@ -1,2 +1,6 @@
+# Files
+.env
+
+# Folders
 **/.history/*
 **/venv/*

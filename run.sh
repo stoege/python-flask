@@ -3,7 +3,7 @@
 # Build
 docker build --tag python-docker .
 
-# Run Background
+# Run in Background
 #docker run -p 5001:5001 --name test python-docker
 
 # Remove Container when stopped

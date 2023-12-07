@@ -1,0 +1,18 @@
+# docker-compose.yaml
+version: '3'
+
+services:
+  flask:
+    build: '.'
+    restart: always
+    network_mode: bridge
+    ports:
+      - '5001:5001'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${SERVICE}.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.${SERVICE}.tls=true"
+      - "traefik.http.middlewares.${SERVICE}.headers.framedeny=true"
+      - "traefik.http.middlewares.${SERVICE}.headers.browserxssfilter=true"
+      - "traefik.http.middlewares.${SERVICE}.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.${SERVICE}.redirectscheme.permanent=true"

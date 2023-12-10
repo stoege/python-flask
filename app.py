@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import platform
 import subprocess
 
@@ -20,6 +20,10 @@ def get_debian_version():
         return f"Debian Version: {result}"
     except subprocess.CalledProcessError as e:
         return f"Error: {e}"
+
+@app.route("/myip")
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}), 200
 
 if __name__ == "__main__":
     app.run(debug=True)

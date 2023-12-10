@@ -1,5 +1,6 @@
 # Files
 .env
+docker-compose.yaml
 
 # Folders
 **/.history/*
